@@ -1,0 +1,37 @@
+title POST Note
+
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over Server: 
+The POST request contains the form data, 
+which get stored on the server
+end note
+
+Server-->Browser: HTTP status code 302
+
+note over Browser: 
+Browser get redirected back to 
+https://fullstack-exampleapp.herokuapp.com/notes
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Server-->Browser: HTML data
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: main.js
+
+note over Browser: 
+Browser executes JS code, 
+pulling JSON data from the server
+this JSON includes the recently
+POST-ed form data
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over Browser:
+Event handler executed.
+New and updated note displayed.
+end note
